@@ -5,13 +5,8 @@ import "./index.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import "react-toastify/dist/ReactToastify.css"
-import { toast } from "react-toastify"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-
-if (document.documentElement.clientWidth >= 767.98) {
-  toast('Для изменения оттенка нажмите "Пробел"')
-}
 
 root.render(
   <React.StrictMode>

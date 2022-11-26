@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react"
 import Column from "./components/column"
 import { toast, ToastContainer } from "react-toastify"
-import {
-  getColorsFromHash,
-  updateColorsHash,
-} from "./components/utils/setRandomColor"
+import { getColorsFromHash } from "./components/utils/setRandomColor"
 
 function App() {
   const [initialState, setInitialState] = useState()
 
   useEffect(() => {
     setInitialState(
-      document.location.hash.length > 1 ? getColorsFromHash().length : 5
+      document.location.hash.length > 1 ? getColorsFromHash().length : 3
     )
-  }, [setInitialState])
+  }, [])
 
   const arr = []
 
@@ -23,34 +20,20 @@ function App() {
     arr.push(col)
   }
 
-  const handleInitialIncrement = () => {
-    const color = getColorsFromHash()
+  const handleInitialIncrement = () =>
+    setInitialState((prevState) => (prevState += 1))
 
-    updateColorsHash(color)
-    return setInitialState((prevState) => (prevState += 1))
-  }
-
-  const handleInitialDecrement = () => {
-    return setInitialState((prevState) => (prevState -= 1))
-  }
+  const handleInitialDecrement = () =>
+    setInitialState((prevState) => (prevState -= 1))
 
   const handleCopy = () => {
-    toast("Выбранные цвета скопированы")
-    const cols = document.querySelectorAll(".col").length
-
-    // const str = "/localhost:3000/#7954d9-5fdf45-b9cc2c-08af34-c3b132-97ea70"
-
-    const str = document.location.href.split(/[^\#]*\#/g)[1].split("-")
-
-    console.log(cols)
-    console.log(str)
-
+    toast("Скопировано успешно")
     return navigator.clipboard.writeText(document.location.href)
   }
 
   return (
     <>
-      {arr.length !== 0 && arr.map((el, index) => <Column key={index} />)}
+      {arr.length !== 0 && arr.map((_, index) => <Column key={index} />)}
 
       <div
         style={{
@@ -60,8 +43,8 @@ function App() {
 
       <div className="nav-fixed">
         {initialState !== 8 ? (
-          <button className="nav-btn" onClick={() => handleInitialIncrement()}>
-            <i className="bi bi-plus" />
+          <button className="nav-btn" onClick={handleInitialIncrement}>
+            <i className="pe-none bi bi-plus" />
           </button>
         ) : null}
 
@@ -73,8 +56,8 @@ function App() {
         </button>
 
         {initialState !== 3 ? (
-          <button className="nav-btn" onClick={() => handleInitialDecrement()}>
-            <i className="bi bi-dash" />
+          <button className="nav-btn" onClick={handleInitialDecrement}>
+            <i className="pe-none bi bi-dash" />
           </button>
         ) : null}
       </div>
