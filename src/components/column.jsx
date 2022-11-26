@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import chroma from "chroma-js"
 import setRandomColors from "./utils/setRandomColor"
 import { toast } from "react-toastify"
+import "./column.css"
 
 const Column = () => {
   const iconClasses = "pe-none"
@@ -25,6 +26,14 @@ const Column = () => {
     }
     setColor(getColorsFromHash())
   }, [])
+
+  if (document.documentElement.clientWidth <= 767.98) {
+    document.addEventListener("click", (e) => {
+      if (e.target.dataset.type === "update") {
+        return setRandomColors(cols)
+      }
+    })
+  }
 
   document.addEventListener("keydown", (e) => {
     if (e.code.toLowerCase() === "space") {

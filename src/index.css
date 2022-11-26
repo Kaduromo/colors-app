@@ -12,61 +12,13 @@ code {
     monospace;
 }
 
+button {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
 #root {
   height: 100vh;
   display: flex;
-}
-
-.col h2 {
-  padding: 10px;
-  /* font-size: 1.5rem; */
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.col h2:hover {
-  background: rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.col button {
-  outline: none;
-  border: none;
-  background: transparent;
-  font-size: 1.5rem;
-  padding: 10px;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.col button:hover {
-  background: rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-.nav-fixed {
-  font-size: 1.5rem;
-  color: #fff;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-fixed button {
-  outline: none;
-  border: none;
-  background: transparent;
-  margin: 0 10px;
-}
-
-@media (max-width: 767.98px) {
-  .col h2,
-  .col button {
-    font-size: 1rem;
-    padding: 5px;
-  }
 }

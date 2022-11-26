@@ -30,6 +30,9 @@ export default function setRandomColors(node, isInitial) {
 
     setTextColor(text, color)
     setTextColor(button, color)
+
+    const btn = document.querySelectorAll(".nav-btn")
+    btn.forEach((b) => setTextColor(b, color))
   })
 
   updateColorsHash(colors)
