@@ -9,7 +9,9 @@ import { toast } from "react-toastify"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-toast('Для изменения оттенка нажмите "Пробел"')
+if (document.documentElement.clientWidth >= 767.98) {
+  toast('Для изменения оттенка нажмите "Пробел"')
+}
 
 root.render(
   <React.StrictMode>

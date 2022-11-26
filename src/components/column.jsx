@@ -33,12 +33,6 @@ const Column = () => {
     }
   })
 
-  if (document.documentElement.clientWidth <= 768) {
-    document.addEventListener("mouseout", () => {
-      setRandomColors(cols)
-    })
-  }
-
   const handleChangeLock = (e) => {
     const bookmarkIcon = e.target.children[0]
     bookmarkIcon.className === iconClasses + bookmark
@@ -63,7 +57,6 @@ const Column = () => {
       <h2 data-type="copy" onClick={handleChangeCopy}>
         color
       </h2>
-
       <button onClick={handleChangeLock}>
         <i className={iconClasses + bookmark} />
       </button>

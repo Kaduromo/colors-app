@@ -1,5 +1,4 @@
 import chroma from "chroma-js"
-import { toast } from "react-toastify"
 
 export default function setRandomColors(node, isInitial) {
   const colors = isInitial ? getColorsFromHash() : []
@@ -12,7 +11,6 @@ export default function setRandomColors(node, isInitial) {
     const button = col.querySelector("button")
 
     if (isLocked) {
-      toast(`Оттенок ${text.textContent} заблокирован `)
       colors.push(text.textContent)
       return
     }
