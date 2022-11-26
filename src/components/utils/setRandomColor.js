@@ -31,8 +31,10 @@ export default function setRandomColors(node, isInitial) {
     setTextColor(text, color)
     setTextColor(button, color)
 
-    const btn = document.querySelectorAll(".nav-btn")
-    btn.forEach((b) => setTextColor(b, color))
+    if (document.documentElement.clientWidth >= 767.98) {
+      const btn = document.querySelectorAll(".nav-btn")
+      btn.forEach((b) => setTextColor(b, color))
+    }
   })
 
   updateColorsHash(colors)
@@ -43,7 +45,7 @@ function setTextColor(text, color) {
   text.style.color = luminance > 0.5 ? "black" : "white"
 }
 
-function updateColorsHash(colors = []) {
+export function updateColorsHash(colors = []) {
   document.location.hash = colors
     .map((col) => {
       return col.toString().substring(1)
@@ -51,7 +53,7 @@ function updateColorsHash(colors = []) {
     .join("-")
 }
 
-function getColorsFromHash() {
+export function getColorsFromHash() {
   if (document.location.hash.length > 1) {
     return document.location.hash
       .substring(1)

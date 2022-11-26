@@ -18,17 +18,13 @@
 .col button {
   font-size: 1.5rem;
   padding: 10px;
-  border-radius: 10px;
   transition: background 0.3s;
 }
 
 .col button:hover {
   background: rgba(0, 0, 0, 0.1);
-  cursor: pointer;
 }
 .nav-fixed {
-  font-size: 1.5rem;
-  color: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -37,16 +33,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .nav-btn {
   margin: 0 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 767.98px) {
-  .col h2,
-  .col button {
-    font-size: 1rem;
-    padding: 5px;
+  .col {
+    flex-direction: row;
+    padding: 15px 0;
+  }
+  .nav-fixed {
+    background: #000;
+  }
+  .nav-btn:active {
+    background: rgba(255, 255, 255, 0.1);
   }
 }

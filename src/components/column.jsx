@@ -24,16 +24,15 @@ const Column = () => {
       }
       return chroma.random()
     }
+
     setColor(getColorsFromHash())
   }, [])
 
-  if (document.documentElement.clientWidth <= 767.98) {
-    document.addEventListener("click", (e) => {
-      if (e.target.dataset.type === "update") {
-        return setRandomColors(cols)
-      }
-    })
-  }
+  document.addEventListener("click", (e) => {
+    if (e.target.dataset.type === "update") {
+      return setRandomColors(cols)
+    }
+  })
 
   document.addEventListener("keydown", (e) => {
     if (e.code.toLowerCase() === "space") {

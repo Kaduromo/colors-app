@@ -16,9 +16,16 @@ button {
   outline: none;
   border: none;
   background: transparent;
+  border-radius: 10px;
 }
 
 #root {
   height: 100vh;
   display: flex;
+}
+
+@media (max-width: 767.98px) {
+  #root {
+    flex-direction: column;
+  }
 }
